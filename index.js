@@ -10,4 +10,4 @@ app.get("/api/testhi", (req, res) => {
 });
 
 const PORT = process.env.PORT || 8888;
-app.listen(8888);
+app.listen(process.env.PORT || 8888);
