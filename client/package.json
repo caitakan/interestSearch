@@ -25,12 +25,13 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-scripts": "^1.1.4",
+    "react-scripts-ts": "^2.16.0",
     "redux": "^3.7.2",
     "typescript": "^2.9.2"
   },
   "scripts": {
     "start": "react-scripts-ts start",
-    "build": "npm build",
+    "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
     "prettier": "prettier --write '**/*{.ts,.tsx}'",
