@@ -30,11 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts-ts start",
-<<<<<<< HEAD
     "build": "react-scripts-ts build",
-=======
-    "build": "npm build",
->>>>>>> ede5755fd35441c7730aa85c395b2e36a4848a38
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
     "prettier": "prettier --write '**/*{.ts,.tsx}'",
