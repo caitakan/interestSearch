@@ -1,13 +1,21 @@
-import Hello from "../components/Hello";
-import * as actions from "../actions/";
+import { Hello, HelloProps } from "../components/Hello/Hello";
+import * as actions from "../actions";
 import { StoreState } from "../types/index";
 import { connect, Dispatch } from "react-redux";
 
-export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
-  return {
-    enthusiasmLevel,
-    name: languageName
-  };
+// export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
+//   return {
+//     enthusiasmLevel,
+//     name: languageName
+//   };
+// }
+export function mapStateToProps(state: StoreState, ownProps: HelloProps) {
+  const mappedProps: HelloProps = {
+    name: state.languageName,
+    enthusiasmLevel: state.enthusiasmLevel
+  }
+  
+  return mappedProps;
 }
 
 export function mapDispatchToProps(
@@ -19,4 +27,4 @@ export function mapDispatchToProps(
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Hello);
+export default connect<HelloProps>(mapStateToProps, mapDispatchToProps)(Hello);

@@ -1,22 +1,34 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-
-import Hello from "./containers/Hello";
+import { Fabric } from "office-ui-fabric-react";
+import Layout from "./containers/LayoutContainer"
+import { Hello } from "./components/Hello";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import { enthusiasm } from "./reducers/index";
-import { StoreState } from "./types/index";
+import { createStore, applyMiddleware } from "redux";
+import reduxThunk from "redux-thunk";
+import fetchUser from "./reducers/LayoutReducer";
+import { StoreState } from "./models/RootState";
 
 import "./index.css";
 
-const store = createStore<StoreState>(enthusiasm, {
-  enthusiasmLevel: 1,
-  languageName: "TypeScript"
-});
+const store = createStore<StoreState>(
+  fetchUser,
+  {
+    auth: {
+      email: "",
+      name: "",
+      googleID: ""
+    }
+  },
+  applyMiddleware(reduxThunk)
+);
+
 
 ReactDOM.render(
   <Provider store={store}>
-    <Hello />
+    <Fabric>
+      <Layout actions={null} />
+    </Fabric>
   </Provider>,
   document.getElementById("root") as HTMLElement
 );
