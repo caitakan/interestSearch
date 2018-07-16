@@ -10,6 +10,7 @@ import fetchUser from "./reducers/LayoutReducer";
 import { StoreState } from "./models/RootState";
 
 import "./index.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 const store = createStore<StoreState>(
   fetchUser,
@@ -27,7 +28,7 @@ const store = createStore<StoreState>(
 ReactDOM.render(
   <Provider store={store}>
     <Fabric>
-      <Layout actions={null} />
+      <Layout actions={null}/>
     </Fabric>
   </Provider>,
   document.getElementById("root") as HTMLElement

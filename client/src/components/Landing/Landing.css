@@ -1,0 +1,10 @@
+.landing-container {
+    padding: 0 7.5%;
+}
+
+.landing-text {
+    font-family: 'Segoe UI';
+    font-size: 3.5rem;
+    font-weight: 500;
+    line-height: 2em;
+}

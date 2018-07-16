@@ -1,0 +1,37 @@
+.header-nav {
+    font-size: medium;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.75em 2em;
+    color: #45C46F;
+    border-radius: 0.5em;
+    transition: all 0.2s ease;
+    border: 1px gray;
+    box-shadow: 0px 0.2em 0px #b3b3b3;
+    margin-right: 0.75em;
+    min-width: 7em;
+    text-align: center;
+}
+
+.header-nav:hover {
+    background-color: #ffffff;
+    transform: translateY(-0.5em);
+    box-shadow: 0px 0.5em 1em #b3b3b3;
+}
+
+.header-home {
+    height: 32px;
+    display: flex;
+    align-self: center;
+    margin-right: auto;
+    margin-left: 10px;
+}
+
+.header-container {
+    display: flex;
+    padding: 15px 10px 10px 10px;
+}
+
+.header-img {
+    height: 32px;
+}

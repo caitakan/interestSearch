@@ -26,7 +26,8 @@ export class Hello extends React.Component<HelloProps, HelloState>{
   }
 
   public render() {
-    console.log(this.state);
+    console.log('states!!',this.state);
+    console.log('props!', this.props);
     return (
       <div className="hello">
         <div className="greeting">
