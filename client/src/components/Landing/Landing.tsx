@@ -29,7 +29,7 @@ export class Landing extends React.Component<LandingProps, LandingState>{
         }
         console.log('this.state  :',this.state);
         const component = (
-            <Typist >
+            <Typist startDelay={1000} cursor={{element: '_', hideWhenDone: true}} >
                  Hello,&nbsp;
                 <Typist.Delay ms={100} />
                     {name}.
