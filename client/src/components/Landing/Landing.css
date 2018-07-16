@@ -8,3 +8,10 @@
     font-weight: 500;
     line-height: 2em;
 }
+
+.Cursor {
+    animation: blinker 1s linear infinite;
+}
+@keyframes blinker {  
+    50% { opacity: 0; }
+  }
