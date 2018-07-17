@@ -31,16 +31,16 @@ export class Landing extends React.Component<LandingProps, LandingState>{
         const component = (
             <Typist startDelay={1000} cursor={{element: '_'}} >
                  Hello,&nbsp;
-                <Typist.Delay ms={100} />
+                <Typist.Delay ms={1000} />
                     {name}.
                     
                 <Typist.Delay ms={2000} />
-                <br />I'm Jason.&nbsp;
+                <br /><Typist.Delay ms={500} />I'm Jason.&nbsp;
                 <Typist.Delay ms={1000} />
                     I'm glad to see you are here.
                     
                 <Typist.Delay ms={2000} />
-                <br />
+                <br /><Typist.Delay ms={500} />
                     Login to let's get to know each other more...
 
                 <Typist.Delay ms={60000} />

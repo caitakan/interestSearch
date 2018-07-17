@@ -5,7 +5,8 @@ import { createBrowserHistory } from "history";
 import { Auth } from "../../../models/RootState";
 import Header from "../../../containers/HeaderContainer";
 import Landing from "../../../containers/LandingContainer";
-// import { Landing } from "../../Landing/Landing";
+import { Login } from "../../Login/Login";
+import { Meeting } from "../../Meeting/Meeting";
 import { Hello } from "../../Hello";
 import "./layout.css";
 
@@ -25,9 +26,8 @@ export class Layout extends React.Component<LayoutProps> {
     }
 
     public render() {
-        const dashboard = () => <h2>Dashboard</h2>;
+        const dashboard = () => <h2>Dashboard, comming soon!</h2>;
         const meeting =() => <h2>Meeting</h2>;
-        const login =() => <h2>Login</h2>;
         // Create browser history to use in the Redux store
         const baseUrl = document.getElementsByTagName("base")[0].getAttribute("href")!;
         const history = createBrowserHistory({ basename: baseUrl });
@@ -45,9 +45,9 @@ export class Layout extends React.Component<LayoutProps> {
                             <Route path="/" exact={true}>
                             <Landing />
                             </Route>
-                            <Route path={"/meeting"} component={meeting} />
+                            <Route path={"/meeting"} component={Meeting} />
                             <Route path={"/dashboard"} component={dashboard} />
-                            <Route path={"/login"} component={login} />
+                            <Route path={"/login"} component={Login} />
                         </Switch>
                     </div>
                 </div>

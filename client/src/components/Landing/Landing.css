@@ -2,6 +2,7 @@
     padding: 0 7.5% 10%;
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .landing-text {
@@ -9,6 +10,7 @@
     font-size: 3.5rem;
     font-weight: 500;
     line-height: 2em;
+    min-height: 350px;
 }
 
 .Cursor {
