@@ -3,7 +3,7 @@ import { RouteComponentProps } from "react-router";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { Auth } from "../../../models/RootState";
-import Header from "../../../containers/HeaderContainer";
+import { Header } from "../Header";
 import Landing from "../../../containers/LandingContainer";
 import { Login } from "../../Login/Login";
 import { Meeting } from "../../Meeting/Meeting";

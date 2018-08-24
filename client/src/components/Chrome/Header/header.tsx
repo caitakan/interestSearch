@@ -1,38 +1,65 @@
 import * as React from "react";
+import axios from "axios";
 import { RouteComponentProps } from "react-router";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Auth } from "../../../models/RootState";
 import "./header.css";
 
-export interface HeaderProps {
-    auth: Auth;
-}
+// export interface HeaderProps {
+//     auth: Auth;
+// }
 
 export interface HeaderState {
     selectedItem: string;
+    auth: any;
 }
 
-export class Header extends React.Component<HeaderProps, HeaderState>{
-    constructor(props: HeaderProps, state: HeaderState){
+export class Header extends React.Component<{}, HeaderState>{
+    constructor(props: {}, state: HeaderState){
         super(props);
         this.state = {
-            selectedItem: ""
+            selectedItem: "",
+            auth: null
         };
     }
-
-    public render(){
-        let _auth: boolean =true;
-        if(this.props.auth){
-            if(this.props.auth.email){
-                _auth = true;
+    public componentWillMount(){
+        axios
+        .get("/auth/current_user")
+        .then(res => {
+            if(res.data.email){
+                this.setState({
+                    auth: true
+                });
             } else {
-                _auth = false;
+                this.setState({
+                    auth: false
+                });
             }
-        } else {
-            _auth = false;
-        }
+        });
+        // if(this.props.auth && this.props.auth.email){
+        //     this.setState({
+        //         auth: true
+        //     });
+        // } else if(this.state.auth){
+        //     this.setState({
+        //         auth: false
+        //     });
+        // }
+        
+    }
+    public render(){
+        // let _auth: boolean =true;
+        // if(this.props.auth){
+        //     if(this.props.auth.email){
+        //         _auth = true;
+        //     } else {
+        //         _auth = false;
+        //     }
+        // } else {
+        //     _auth = false;
+        // }
         const renderComponet = () => {
-            switch(_auth){
+            switch(this.state.auth){
                 case false:
                     return(
                         <a href="/login" className="header-nav">Login</a>
@@ -43,7 +70,9 @@ export class Header extends React.Component<HeaderProps, HeaderState>{
                     );
             }
         }
+        console.log('header state   ', this.state.auth);
         console.log('header.props',this.props);
+        if(this.state.auth === null) return null;
         return(
             <div className="header-container">
                 <a href="/" className="header-home"><img className="header-img" src={process.env.PUBLIC_URL + '/face.svg'} /></a>
@@ -52,9 +81,5 @@ export class Header extends React.Component<HeaderProps, HeaderState>{
                 {renderComponet()}
             </div>
         );
-    }
-
-    private _onclick(keys: string){
-        console.log('onclick props  ',this.props );
     }
 }
